@@ -17,7 +17,8 @@ conda activate eh
 **Step 2.** Install PyTorch with GPU following [official instructions](https://pytorch.org/get-started/locally/).
 
 ```shell
-conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia -y
+conda install -c conda-forge cudatoolkit-dev -y
+conda install "pytorch<2" torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia -y
 ```
 
 **Step 3.** Install mmcv, mmdet, mmpose and mmhuman3d from source provided in this repository.
@@ -41,7 +42,7 @@ pip install -v -e .
 ```
 
 ```shell
-cd ,,/mmhuman3d
+cd ../mmhuman3d
 pip install -v -e .
 ```
 
@@ -50,8 +51,8 @@ pip install -v -e .
 cd ../pycococreator
 python setup.py install
 
-pip install hdbscan yacs Rtree pyntcloud pyvista python-fcl pykalman torchgeometry colour pycolmap flask timm
-
+pip install hdbscan yacs Rtree pyntcloud pyvista python-fcl pykalman torchgeometry colour flask timm trimesh
+pip install "numpy<2" "pycolmap<0.5"
 ```
 
 ## From scratch script

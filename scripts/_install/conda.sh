@@ -10,7 +10,7 @@ conda activate eh
 cd ../../egohumans
 
 ## install pytorch, make sure you have correct cuda version or feel free to change it
-conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia -y
+conda install "pytorch<2" torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia -y
 
 ## install mmcv from source. make sure you have correct gcc version
 cd external/mmcv
@@ -41,7 +41,8 @@ python setup.py install
 cd ..
 
 ## install other dependencies
-pip install hdbscan yacs Rtree pyntcloud pyvista python-fcl pykalman torchgeometry colour pycolmap flask timm
+pip install hdbscan yacs Rtree pyntcloud pyvista python-fcl pykalman torchgeometry colour flask timm trimesh
+pip install "numpy<2" "pycolmap<0.5"
 
 ## install mmtracking
 cd ../mmtracking
